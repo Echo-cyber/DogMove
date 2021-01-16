@@ -1,4 +1,3 @@
-#include <iostream>
 
 using namespace std;
 
@@ -11,11 +10,13 @@ const int DIRECTIONS = 4;
 class Bug
 {
 public:
+   Bug(int r=20,int c=20, int d=EAST)
+     :row(r),column(c),direction(d) {}
    void move_one_unit();
    void turn_right();
    int get_row() const;
    int get_column() const;
-                         
+
 private:
    int row;
    int column;
@@ -23,14 +24,14 @@ private:
 };
 
 void Bug::move_one_unit()
-{   
+{
    if (direction == NORTH) { row--; }
    else if (direction == EAST) { column++; }
    else if (direction == SOUTH) { row++; }
    else if (direction == WEST) { column--; }
 }
 
-void Bug::turn_right() 
+void Bug::turn_right()
 {
    direction++;
    if (direction == DIRECTIONS) { direction = 0; }
@@ -38,3 +39,4 @@ void Bug::turn_right()
 
 int Bug::get_row() const { return row; }
 int Bug::get_column() const { return column; }
+
